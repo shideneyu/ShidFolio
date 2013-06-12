@@ -1,0 +1,71 @@
+div class="container"
+  div class="row"
+  	div class="span4"
+			ul style="list-style-type: none;"
+			  li M. Sidney Sissaoui
+			  li 29 Rue Clavel 75019 Paris
+			  li 06 45 75 43 77
+			  li 19 Ans, Nationalité Francaise
+    div class="span6"
+			h1 Curriculum Vitae
+    div class="span2"
+		  = image_tag('sidney-sissaoui.png', :border => 0, :width => "75%")
+
+h3 Expériences Professionneles et Formations
+br
+
+table class="table table-striped"
+  tr
+    th class="span2" Dates
+    th class="span4" Expérience Professionnelles
+    th class="span6" Formation / Diplomes
+
+  tr
+    td 2013
+    td Stage à l'Institut National des Arts divinatoires
+    td BTS Services Informatiques aux; Organisations, au lycée Eugène Jamot, 23200 Aubusson
+  tr
+    td 2012
+    td Stage chez SPEAR, 75016 Paris
+    td Certificat Informatique et Internet (C2i)
+  tr
+    td 2011
+    td Participation à titre bénévole à l'Assotiation SOCRATE
+    td Baccalauréat Scientifique Mention Européenne au lycée Henri Bergson, 75019 Paris
+
+  tr
+    td 2009
+    td Rédacteur sur le site internet Logic Sunrise
+    td Obtention du Preliminary English Test
+
+  tr
+    td 2008
+    td
+    td Brevet Des Collèges au collège Claude Chappen, 75019 Paris; Attestation Scolaire de Sécurité Routière Niveau 2 ( ASSR 2)
+
+div class="row"
+  div class="span8"
+    h3 Compétences
+
+    ul
+      li Je développe sous PHP, Ruby On Rails avec RSpec et des Gems.
+      li Je peux programmer en Java et Visual Basic.
+      li Je sais concevoir et analyser des structures de données (MCD/MLD), et les transposer en SQL
+      li Fonctionnel sous Linux (que j'utilise quotidiennement) et Windows.
+
+    h3 Langues Vivantes et Centres d'Intérêts
+
+    ul
+      li Anglais courrant, Allemand niveau scolaire.
+      li Muay Thai, culture et animation japonaise, actualité numérique (via Twitter, Google+).
+
+  div class="span4"
+    br
+    br
+    br
+    table border="1"
+      tr
+        td
+          ' Télécharger mon CV en PDF:
+          center
+            = link_to image_tag('pdf.png', :border => 0, :width => "50%"), 'assets/curriculum-vitae.pdf'

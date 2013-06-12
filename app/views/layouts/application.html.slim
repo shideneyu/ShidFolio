@@ -1,0 +1,50 @@
+doctype html
+html
+  head
+    title Shid'Folio
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  body
+    div class="navbar navbar-fixed-top"
+      div class="navbar-inner"
+        div class="container"
+          a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
+            span class="icon-bar"
+            span class="icon-bar"
+            span class="icon-bar"
+          a class="brand" href="#"
+            ' Shid'Folio
+          div class="nav-collapse"
+            ul class="nav"
+              li
+                = link_to "Accueil"
+              li
+                = link_to "Curriculum Vitae"
+              li
+                = link_to "Contactez-Moi"
+            ul class="nav pull-right"
+              a class="brand" Mes projets
+              li
+                = link_to "INAD"
+              li
+                = link_to "Spear"
+              li
+                = link_to "SIERS"
+              li
+                = link_to "CAPDC"
+              li
+                = link_to "OwnLan"
+              li
+                = link_to "CP-Ghost"
+    div class="container"
+      div class="row"
+        - if controller_name.classify == "Home" || controller_name.classify == "Cv"
+	        div class="span12"
+	          = yield
+        - else
+        	div class="span8"
+	          = yield
+        	div class="span4"
+          	h3 Qui-Suis-Je?
+          	' Etudiant en deuxième année d'informatique, je suis un dévelopeur travaillant essentiellement sous Ruby. Je m'interresse à la veille technologique spécialement dans le domaine de la sécurité des réseaux wifi. Autrement, je pratique le Muay Thai, joue au Jeu De Go, et dispose de grandes connaissances de la culture Japonaise (Animation, Musique...)
