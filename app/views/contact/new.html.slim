@@ -1,0 +1,25 @@
+- flash.each do
+  div class="alert alert-error"
+    a class="close" data-dismiss="alert" 
+      '×
+    ' Les champs n'ont pas été remplis, ou l'ont mal été. Le mail n'a pas été envoyé, veuillez corrigez les fautes merci.
+h1 Contactez-Moi
+
+p Vous pouvez utiliser le formulaire ci-dessous pour pouvoir m'envoyer un mail; suite à quoi je vous répondrai dans les plus brefs délais.
+
+= form_for @message, :url => contact_path do |form|
+  fieldset.fields
+    .field
+      = form.label :nom
+      = form.text_field :name
+    .field
+      = form.label :'votre-email'
+      = form.text_field :email
+    .field
+      = form.label :sujet
+      = form.text_field :subject
+    .field
+      = form.label :contenu
+      = form.text_area :body, :rows => "10", :class => "span8"
+  fieldset.actions
+    = form.submit "Envoyer"

@@ -1,4 +1,7 @@
 Shidfolio::Application.routes.draw do
+  root :to => "home#index"
+  match '/' => "home#indes", :as => :root
+
   resources :home, :only => :index
   resources :cv, :only => :index
   resources :inad, :only => :index
@@ -7,6 +10,10 @@ Shidfolio::Application.routes.draw do
   resources :capdc, :only => :index
   resources :ownlan, :only => :index
   resources :cpghost, :only => :index
+
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
+
 
 
   # The priority is based upon order of creation:
