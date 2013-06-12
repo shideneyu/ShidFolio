@@ -1,0 +1,2 @@
+module CpGhostHelper
+end

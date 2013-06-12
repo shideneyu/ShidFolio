@@ -1,0 +1,2 @@
+module CapdcHelper
+end

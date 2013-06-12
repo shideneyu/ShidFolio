@@ -1,0 +1,113 @@
+h1 Projet OwnLan
+br
+
+' OwnLan est une suite d'utilitaire pour tester la sécurité d'un réseau. 4 Facettes sont visées: La protection, l'attaque, le sniffing et la réinjection. OwnLan est mon plus gros projet, il est en perpetuel développement, cependant, que l'attaque ne fonctionne à présent. Il s'agit tout de même du plus gros; mieux, OwnLan présente et met à disposition dès à présent une attaque 0 Day, attaque je j'ai découverte en analysant les réseaux. Cette attaque se nomme 'NTOA' pour 'Neighbour Table Overflow Attack' et permet de déconnecter n'importe quel périphérique d'Internet en provoquant une surcharge dans le cache ARP de la victime.
+
+h4 Technologies utilisées
+
+br
+
+ul
+  li Ruby 1.9.3
+  li Un serveur GIT pour le développement en mode projet et le suivit de l'avancement
+  li La gemme 'PacketFu' pour la gestion des paquets réseaux
+
+h4 Notes
+
+br
+
+ul
+  li Ce projet a été développé lors de mon temps libre, en dehors de tout projet scolaire.
+  li
+    ' Le projet est hebergé sur 
+    = link_to 'GitHub', 'http://github.com/shideneyu/ownlan'
+  li Il s'agit du plus gros de tous mes projets, toujours en développement
+  li J'ai de grandes ambitions pour cette suite, qui deviendra surement très utilisé dans le monde dans un futur proche.
+  li J'ai développé OwnLan en premier lieu pour copier et se protéger du logiciel 'NetCut', logiciel sous Windows.
+
+br
+h4
+  ' Page de présentation
+  = link_to 'GitHub', 'http://github.com/shideneyu/ownlan'
+
+h2#ownlan OwnLan
+p
+  strong Ownlan
+  |  aims to be a simple, concise and useful pentesting LAN poisoning suite, Written in
+  code Ruby
+  | and using
+  code PacketFU
+  | for reading and sending the packets on the wire. I decided to make this suite of tools mainly due do to the lack of existing tools on Linux, on top of helping me understanding the whole process behind the scene. OwnLan got uniques features, with some exclusives and excitings attacks probably never ever used on a (pentesting) network.
+h2#features Features
+p
+  strong OwnLan
+  | has four features:
+ol
+  li Disconnect one or several users off the wire [Not Implemented]
+  li Protecting users from these kind of attacks [Not Implemented]
+  li Sending ARP + DHCP packets easily (manual way)[Not implemented]
+  li Easy ARP packets capture [Not Implemented]
+h3#disconnecting-users-off-the-wire Disconnecting users off the wire
+p
+  | The biggest part of OwnLan
+  | It disconnects clients thanks to severals techniques:
+ul
+  li
+    | Client side ARP Cache Poisoning (
+    strong> first duplex
+    | ).
+    em
+      | The most used and common attack nowadays, the main purpose is to make a MITM attack, but alone (= without IP forwarding), it will disconnect the client. Used by
+      code TuxCut
+      | and
+      code Arpspoof
+      | \. If no MAC Adress is given, yours will be given.
+  li
+    | Gateway side ARP Cache Poisoning (
+    strong> second duplex
+    | ).
+    em
+      | A less known attack and powerful one, used by
+      code NetCut
+      | , the principle is to give the gateway a fake correspondancy of the victim MAC Adress to make the later one unreachable. If no MAC Adress is given, yours will be given.
+  li
+    | Neighbour Table Overflow attack.
+    em
+      | I invented this attack, not to be modest. In fact, I should say 'implemented' since, usually, it is the gateway which is attacked (even so, this one attack is very rare), here, we attack the client directly. I don't think anyone has ever thought of this... and it works! The
+      strong NTOA
+      | will not insert random MAC adress, but following a scheme, to ensure that 2 same mac adress won't be injected. So, it makes the attack faster. One client or all clients can be specified.
+  li
+    | Gateway ARP Cache Overflow.
+    em This attack will render the GateWay ARP Cache unusable, and will make a loss of connectivity to all the clients. Some CISCO routers are immuned to this attack though
+  li
+    | DHCP Lease Spoofing [Not Implemented]. *This attack will spoof DHCP lease (udp) packet by telling the DHCP server 'Hello, I don't use this IP anymore, just disconnect me' . As of today, this attack is extremly rare, difficult to make, and used only by
+    code Yersinia
+    | \. There is nothing to prevent this attack, after it has been used. Really.
+h3#protecting-not-implemented Protecting [Not implemented]
+h4#prevention Prevention
+ul
+  li A mix between arptables and iptables to become invisible in the network is a good fix to prevent ALL of the attacks. Please note that it is a prevention measure, and not a fix.
+h4#counter-measure Counter-Measure
+ul
+  li Against a client side arp cache poisoning, OwnLan will set a static ARP Cache.
+  li Against a client side or gateway side arp cache poisoning, Ownlan can send continuous fix packet to recreate the right correspondancy. It can be used for fixing other clients in the network.
+  li Against a NTOA, Ownlan will delete all the cache, will set a static ARP cache on top of freezing the whole thing.
+h3#sending-raw-packet-not-implemented Sending Raw Packet [Not implemented]
+h4#arp ARP
+pre
+  code
+    | ownlan -sm [source-mac] -dm [destination-mac] -sip [source-ip] -dip [destination-ip] -op [1/2]
+p OP is the opcode: 1 for ARP Request, 2 for ARP Reply
+h4#dhcp-udp-not-implemented DHCP (udp) [Not Implemented]
+h2#notes Notes
+ul
+  li
+    p If you put the -ic to option, you will generate a fake IP Conflict to lure the client to the wrong way of handling his connection loss
+  li
+    p The handy thing in this tools, is that thanks to all these options, you will literally be able to do whatever ARP Cache poisonning attack you wish to make. For instance, if you want to make a Full Duplex attack, use the first and second duplex attack as specified above.
+  li
+    p
+      | OwnLan is way faster than arpspoof and can make 1000 times more requests per seconds than it. You can specify the delay between each request by specifying whatever attack you do : '-d [integer]' . Replace [integer] by some number in miliseconds.
+h2#exemples Exemples
+p [To do]
+p Copyright (c) 2013 Sidney Sissaoui, released under the MIT license

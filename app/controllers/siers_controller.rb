@@ -1,5 +1,5 @@
 
-class CvController < ApplicationController
+class SiersController < ApplicationController
   def index
     respond_to do |format|
 	     format.html # index.html.erb

@@ -18,33 +18,34 @@ html
           div class="nav-collapse"
             ul class="nav"
               li
-                = link_to "Accueil"
+                = link_to "Accueil", home_index_path
               li
-                = link_to "Curriculum Vitae"
+                = link_to "Curriculum Vitae", cv_index_path
               li
                 = link_to "Contactez-Moi"
             ul class="nav pull-right"
               a class="brand" Mes projets
               li
-                = link_to "INAD"
+                = link_to "INAD", inad_index_path
               li
-                = link_to "Spear"
+                = link_to "Spear", spear_index_path
               li
-                = link_to "SIERS"
+                = link_to "SIERS", siers_path
               li
-                = link_to "CAPDC"
+                = link_to "CAPDC", capdc_index_path
               li
-                = link_to "OwnLan"
+                = link_to "OwnLan", ownlan_index_path
               li
-                = link_to "CP-Ghost"
+                = link_to "CP-Ghost", cpghost_index_path
     div class="container"
       div class="row"
         - if controller_name.classify == "Home" || controller_name.classify == "Cv"
 	        div class="span12"
 	          = yield
         - else
-        	div class="span8"
+        	div class="span9"
 	          = yield
-        	div class="span4"
-          	h3 Qui-Suis-Je?
-          	' Etudiant en deuxième année d'informatique, je suis un dévelopeur travaillant essentiellement sous Ruby. Je m'interresse à la veille technologique spécialement dans le domaine de la sécurité des réseaux wifi. Autrement, je pratique le Muay Thai, joue au Jeu De Go, et dispose de grandes connaissances de la culture Japonaise (Animation, Musique...)
+        	div class="span3"
+          	h3 A propos
+            = image_tag('sidney-sissaoui.png', :border => 0, :width => "9%", :align => "left")
+          	p align="justify" Etudiant en deuxième année d'informatique, je suis un dévelopeur travaillant essentiellement sous Ruby. Je m'interresse à la veille technologique spécialement dans le domaine de la sécurité des réseaux wifi. Comme autre hobby, je pratique le Muay Thai, joue au Jeu De Go, et suis friand de la culture Japonaise (Animation, Musique...)

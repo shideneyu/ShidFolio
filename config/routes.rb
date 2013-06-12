@@ -1,6 +1,12 @@
 Shidfolio::Application.routes.draw do
-  resources :homes, :only => :index
+  resources :home, :only => :index
   resources :cv, :only => :index
+  resources :inad, :only => :index
+  resources :siers, :only => :index
+  resources :spear, :only => :index
+  resources :capdc, :only => :index
+  resources :ownlan, :only => :index
+  resources :cpghost, :only => :index
 
 
   # The priority is based upon order of creation:
