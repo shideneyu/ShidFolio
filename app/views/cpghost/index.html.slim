@@ -2,8 +2,13 @@ h1 Projet CP-Ghost
 
 br
 
-' CP-Ghost Signifie 'Captive-Portal Ghost', en d'autres mots, 'Le fantômes des Portails Captifs'. J'ai développé ce logiciel de test de la sécurisation de réseaux pour pouvoir obtenir les adresses MACs des périphériques se connectant à un point d'accès internet. J'ai spécifié 'Portail Captif', car son utilisation première est de voir les adresses MACs des gens se connectant à des portails captifs. Obtenir les adresses MACs n'est pas un délit, mais c'est les utiliser qui est illégal, et c'est pour ca que mon logiciel est parfaîtement dans les normes.
+' CP-Ghost Signifie 'Captive-Portal Ghost', en d'autres mots, 'Le fantôme des Portails Captifs'. J'ai développé ce logiciel de test de la sécurisation de réseaux pour pouvoir obtenir les adresses MACs des périphériques se connectant à un point d'accès internet. J'ai spécifié 'Portail Captif', car son utilisation première est de voir les adresses MACs des gens se connectant à des portails captifs. Obtenir les adresses MACs n'est pas un délit, mais les utiliser par contre est illégal (il s'agit d'une usurpation d'identité), et c'est pour ca que mon logiciel est parfaitement dans les normes.
 
+br
+
+= image_tag "cpghost.png", :width => "700"
+
+br
 
 h4 Technologies utilisées
 
@@ -26,6 +31,9 @@ ul
     ' Le projet est hebergé sur 
     = link_to 'GitHub', 'http://github.com/shideneyu/cp-ghost'
 
+= image_tag "cpghost1.png", :width => "500"
+
+
 h4 Fonctionnalités
 
 ul
@@ -34,4 +42,4 @@ ul
   li Grâce à l'utilisation des Processus, une barre de chargement d'affiche pendant le scan
   li La durée du scan peut être modifiée en passant l'option '--long'
   li Un tableau récapitulatif est généré à la fin
-  li On peut spécifier la carte réseau utilisé avec l'option '-i'
+  li On peut spécifier la carte réseau utilisée avec l'option '-i'
