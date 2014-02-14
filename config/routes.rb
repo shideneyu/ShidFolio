@@ -1,6 +1,6 @@
 Shidfolio::Application.routes.draw do
   root :to => "home#index"
-  match '/' => "home#indes", :as => :root
+  #match '/' => "home#indes", :as => :root
 
   resources :home, :only => :index
   resources :cv, :only => :index
